@@ -1,6 +1,6 @@
 from pysat.solvers import Glucose3
 import time
-from sudoku import read_sudoku_3, show_sudoku_3
+from sudoku import read_sudoku, show_sudoku
 
 
 def current_milli_time():
@@ -47,29 +47,18 @@ for k in range(1, 10):
                     sum1 += 1
 
 sudoku = [
-    "020501090",
-    "800203006",
-    "030060070",
-    "001000600",
-    "540000019",
-    "002000700",
-    "090030080",
-    "200804007",
-    "010907060"
-]
-# sudoku = [
-#     "000000200",
-#     "080007090",
-#     "602000500",
-#     "070060000",
-#     "000901000",
-#     "000020040",
-#     "005000603",
-#     "090400070",
-#     "006000000"
-# ]
+        "5,3,0,0,7,0,0,0,0",
+        "6,0,0,1,9,5,0,0,0",
+        "0,9,8,0,0,0,0,6,0",
+        "8,0,0,0,6,0,0,0,3",
+        "4,0,0,8,0,3,0,0,1",
+        "7,0,0,0,2,0,0,0,6",
+        "0,6,0,0,0,0,2,8,0",
+        "0,0,0,4,1,9,0,0,5",
+        "0,0,0,0,8,0,0,7,9"
+    ]
 
-read_sudoku_3(sudoku, g)
+read_sudoku(sudoku, 9, g)
 
 start = current_milli_time()
 print(g.solve())
@@ -79,4 +68,4 @@ end = current_milli_time()
 print("Time to solve: " + str(end-start) + " (ms)")
 print("Number of clause: " + str(sum1))
 
-show_sudoku_3(result)
+show_sudoku(result, 9)
